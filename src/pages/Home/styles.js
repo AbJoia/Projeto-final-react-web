@@ -7,22 +7,23 @@ export const TopContainer = styled.div`
 `;
 
 export const BottomContainer = styled.div`
+    align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 10px;
 `;
 
-export const Customers = styled.div`
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-bottom: 6px;
+export const ContainerTable = styled.div`
+    background-color: #c4c4c4;
+    border-radius: 30px; 
+    border: 2px solid #333;
+    padding: 10px 0 10px 30px;
+    margin-bottom: 10px;
+    width: 60%;
 
-    img {
-        height: 72px;
-        width: 72px;
+    table td {
+        padding-left: 30px;
     }
 `;
 
@@ -32,6 +33,7 @@ export const Title = styled.h1`
     margin: 20px 30px;
     text-align: center;
 `;
+
 
 export const Card = styled.div`
     border-radius: 30px;

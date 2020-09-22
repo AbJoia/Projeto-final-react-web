@@ -25,8 +25,6 @@ export const BottomButton = styled.div`
     width: 40px;
     height: 40px;
     position: relative;
-    top: 330px;
+    top: 60%;
     left: 15px;
-    display: flex;
-    align-items: flex-end;
 `
