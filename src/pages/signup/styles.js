@@ -12,7 +12,8 @@ export const LeftSide = styled.div`
     width: 50%;  
     height: auto;
     img{
-        margin-top:443px;
+        margin-top:300px;
+        margin-bottom: 100px;
         width: 100%
     }
 `;
@@ -29,7 +30,7 @@ export const Titleform = styled.div`
     width: 100%;
     height: auto;
     h2{   
-        margin-top: 200px;     
+        margin-top: 100px;     
         font-size: 48px;
         text-align: center;              
     }
@@ -47,10 +48,12 @@ export const Form = styled.form`
         height: 46px;
         margin: auto;
         margin-top: 30px; 
+        padding-left: 1.5rem;
+        font-size: 1.5rem;
 
         ::placeholder{
-            font-size: 1.5rem;
-            padding-left: 1.5rem;
+            
+            
         } 
 
         &[type="date"]{
@@ -61,16 +64,28 @@ export const Form = styled.form`
     }
 
     button{
-        width: 180px;
-        height: 61px;             
-        border-radius: 30px;
-        border-style: none;
-        font-size: 24px;
-        margin: auto; 
-        margin-top: 30px; 
-        background-color: #C4C4C4;
-        &:hover{
-            background-color: #E5E5E5;
-        }                              
-    }    
+    width: 180px;
+    height: 61px;             
+    border-radius: 30px;
+    border-style: none;
+    font-size: 24px;
+    margin:auto;
+    margin: 0 0px 0 108.5px;         
+    margin-top: 30px; 
+    color: white;
+    background-color: #301E46;       
+    &:hover{
+        background-color: #E5E5E5;
+        transition: 0.5s;
+        color: black;
+    }   
+
+    .buttonArea{
+        display: flex;
+    }                           
+}
+
+       
 `;
+
+ 

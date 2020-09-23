@@ -8,7 +8,7 @@ const FormStep1 = () =>{
             <input type="text" placeholder="CPF" ></input>
             <input type="date" placeholder="Data Nascimento" ></input>
             <input type="email" placeholder="email" ></input>                              
-                      
+          
         </>
     );
 }
