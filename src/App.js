@@ -16,7 +16,7 @@ function App() {
         <Route path="/signup" componente={Signup}>
           <Signup />
         </Route>
-        <Route path="/user" componente={User}>
+        <Route path="/user/:id" componente={User}>
           <User/>
         </Route>
       </Switch>
