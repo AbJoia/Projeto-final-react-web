@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import api from 'axios';
+import { Link } from 'react-router-dom'
+import { Button } from '@material-ui/core';
+
 
 import {
   Title,
-  Text,
   Card,
   Icon,
   TopContainer,
   BottomContainer,
-  ContainerTable,
-  User
 } from './styles';
 import AccountIcon from '../../assets/account.svg';
 
 const baseURL = 'http://residencia-ecommerce.us-east-1.elasticbeanstalk.com';
 
 const Dashboard = () => {
+
   const [userResponse, setUserResponse] = useState([]);
 
   useEffect(() => {
@@ -48,17 +48,28 @@ const Dashboard = () => {
       </TopContainer>
       <BottomContainer>
         <Title>Clientes</Title>
-        {userResponse.map((user) =>
-          <ContainerTable>
-            <table>
-                <tbody>
-                  <tr><td>{user.usuario}</td></tr>
-                  <tr><td>{user.nome}</td></tr>
-                  <tr><td>{user.email}</td></tr>
-                </tbody>
-            </table>
-          </ContainerTable>
-        )}
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Username</th>
+            </tr>
+          </thead>
+          {userResponse.map((user) =>
+            <tbody>
+              <Link to={`/user/${user.id}`}>
+                <tr>
+                  <td>{user.id}</td>
+                  <td>{user.nome}</td>
+                  <td>{user.email}</td>
+                  <td>{user.usuario}</td>
+                </tr>
+              </Link>
+            </tbody>
+          )}
+        </table>
       </BottomContainer>
     </>
   );

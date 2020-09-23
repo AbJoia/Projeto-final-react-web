@@ -1,56 +1,32 @@
 import styled from 'styled-components';
 
-export const TopContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-`;
-
-export const BottomContainer = styled.div`
-    align-items: center;
+export const HeaderContainer = styled.div`
+    background-color: #301E46;
+    height: 100%;
+    width: 5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 0% 30px 30px 0%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 10px;
-`;
+`
 
-export const ContainerTable = styled.div`
-    background-color: #c4c4c4;
-    border-radius: 30px; 
-    border: 2px solid #333;
-    padding: 10px 0 10px 30px;
-    margin-bottom: 10px;
-    width: 60%;
+export const TopButton = styled.div`
+    width: 40px;
+    height: 40px;
+    position: relative;
+    top: 80px;
+    left: 15px;
+    margin-bottom: 50px;
+`
 
-    table td {
-        padding-left: 30px;
-    }
-`;
-
-export const Title = styled.h1`
-    font-size: 14px;
-    font-weight: 300;
-    margin: 20px 30px;
-    text-align: center;
-`;
-
-
-export const Card = styled.div`
-    border-radius: 30px;
-    height: 113px;
-    margin: 10px;
-    width: 182px;
-
-    .text-title {
-        font-size: 14px;
-        font-weight: 400;
-        margin-left: 20px;
-        margin-top: 14px;
-    }
-`;
-
-export const Icon = styled.img`
-    height: 78px;
-    margin-left: 84px;
-    width: 78px;
-`;
+export const BottomButton = styled.div`
+    width: 40px;
+    height: 40px;
+    position: relative;
+    top: 330px;
+    left: 15px;
+    display: flex;
+    align-items: flex-end;
+`
