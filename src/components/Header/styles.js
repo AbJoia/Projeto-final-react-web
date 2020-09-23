@@ -25,6 +25,6 @@ export const BottomButton = styled.div`
     width: 40px;
     height: 40px;
     position: relative;
-    top: 60%;
+    top: 55%;
     left: 15px;
 `
