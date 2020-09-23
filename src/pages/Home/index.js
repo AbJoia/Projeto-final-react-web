@@ -1,78 +1,43 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header';
-import api from 'axios';
+import api from '../../services/api';
 import { Link } from 'react-router-dom'
-import { Button } from '@material-ui/core';
-
 
 import {
-  Title,
+  BottomContainer,
   Card,
   Icon,
-  TopContainer,
-  BottomContainer,
+  Title,
 } from './styles';
 import AccountIcon from '../../assets/account.svg';
 
-const baseURL = 'http://residencia-ecommerce.us-east-1.elasticbeanstalk.com';
-
-const Dashboard = () => {
+const Home = () => {
 
   const [userResponse, setUserResponse] = useState([]);
 
   useEffect(() => {
-    api.get(`${baseURL}/cliente`).then(response => setUserResponse(response.data));
+    api.get(`/cliente`).then(response => setUserResponse(response.data));
   }, []);
 
   return (
     <>
       <Header />
-      <Title>Informações</Title>
-      <TopContainer>
-        <Card style={{ backgroundColor: "#FAD3D3" }}>
-          <p className="text-title">Total de Clientes</p>
-          <Icon src={AccountIcon} />
-        </Card>
-        <Card style={{ backgroundColor: "#D3FADC" }}>
-          <p className="text-title">Clientes Ativos</p>
-          <Icon src={AccountIcon} />
-        </Card>
-        <Card style={{ backgroundColor: "#D3F3FA" }}>
-          <p className="text-title">Clientes Inativos</p>
-          <Icon src={AccountIcon} />
-        </Card>
-        <Card style={{ backgroundColor: "#E4D3FA" }}>
-          <p className="text-title">Contas excluídas</p>
-          <Icon src={AccountIcon} />
-        </Card>
-      </TopContainer>
+      <Title>Clientes</Title>
       <BottomContainer>
-        <Title>Clientes</Title>
-        <table>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Username</th>
-            </tr>
-          </thead>
-          {userResponse.map((user) =>
-            <tbody>
-              <Link to={`/user/${user.id}`}>
-                <tr>
-                  <td>{user.id}</td>
-                  <td>{user.nome}</td>
-                  <td>{user.email}</td>
-                  <td>{user.usuario}</td>
-                </tr>
-              </Link>
-            </tbody>
-          )}
-        </table>
+        {userResponse.map((user) =>
+          <Card key={user.id}>
+            <Link to={`/user/${user.id}`}>
+              <div>
+                <h4>{user.id}. {user.nome}</h4>
+                <p>@{user.usuario}</p>
+                <Icon src={AccountIcon} />
+              </div>
+            </Link>
+          </Card>
+        )}
       </BottomContainer>
     </>
   );
 }
 
-export default Dashboard;
+export default Home;

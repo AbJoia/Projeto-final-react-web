@@ -1,32 +1,56 @@
 import styled from 'styled-components';
 
-export const HeaderContainer = styled.div`
-    background-color: #301E46;
-    height: 100%;
-    width: 5rem;
-    position: fixed;
-    top: 0;
-    left: 0;
-    border-radius: 0% 30px 30px 0%;
+export const BottomContainer = styled.div`
+    align-items: center;
     display: flex;
-    flex-direction: column;
-`
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    padding: 10px;
+    max-width: 940px;
+`;
 
-export const TopButton = styled.div`
-    width: 40px;
-    height: 40px;
-    position: relative;
-    top: 80px;
-    left: 15px;
-    margin-bottom: 50px;
-`
+export const Title = styled.h1`
+    font-weight: 600;
+    padding-top: 40px;
+    text-align: center;
+`;
 
-export const BottomButton = styled.div`
-    width: 40px;
-    height: 40px;
-    position: relative;
-    top: 330px;
-    left: 15px;
-    display: flex;
-    align-items: flex-end;
-`
+
+export const Card = styled.div`
+    background-color: #E4D3FA; 
+    border-radius: 20px;
+    height: auto;
+    margin: 10px;
+    padding: 10px;
+    width: auto;
+
+    .text-title {
+        font-weight: 400;
+        margin-left: 20px;
+        margin-top: 14px;
+    }
+
+    &:hover {
+        background-color: #edf2f4;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    h4 {
+        color: #333;
+    }
+
+    p {
+        color: #555;
+    }
+`;
+
+export const Icon = styled.img`
+    height: 78px;
+    margin-left: 84px;
+    width: 78px;
+`;
