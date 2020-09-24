@@ -44,8 +44,8 @@ const User = () => {
        api.put(`/cliente/${params.id}`, newData).then(response => setNewData(response.data))
     }
 
-    const handleClick = () => {        
-        api.delete(`/cliente/${params.id}`);
+    const handleClick = async () => {        
+        await api.delete(`/cliente/${params.id}`);
         alert('Usuário deletado com sucesso!');        
     }
 

@@ -10,15 +10,9 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" exact component={Home}>
-          <Home />                
-        </Route>
-        <Route path="/signup" componente={Signup}>
-          <Signup />
-        </Route>
-        <Route path="/user/:id" componente={User}>
-          <User/>
-        </Route>
+        <Route path="/" exact component={Home}/>      
+        <Route path="/signup" component={Signup}/>       
+        <Route path="/user/:id" component={User}/>         
       </Switch>
       <Global />
     </BrowserRouter>
