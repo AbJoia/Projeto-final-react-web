@@ -49,6 +49,11 @@ export const Form = styled.form`
 export const ButtonContainer = styled.div`
     margin: 5%;
     display: flex;
+
+    a{
+        text-decoration: none;
+        width: 105%;
+    }
     
     button{
         border-radius: 20px;
@@ -56,7 +61,7 @@ export const ButtonContainer = styled.div`
         color: #fff;
         height: 40px;
         width: 25%;
-        margin:0 0 0 48px;
+        margin:0 0 0 48px;        
     }
 
     @media  (max-width: 764px){

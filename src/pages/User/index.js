@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useRouteMatch } from 'react-router-dom';
+import { useRouteMatch, Link } from 'react-router-dom';
 
 import Header from '../../components/Header';
 import api from '../../services/api';
@@ -33,9 +33,7 @@ const User = () => {
         },
         nome: '',
         usuario: ''
-    });
-
-    const id = '';
+    });    
 
     const { params } = useRouteMatch();
     useEffect(() => {
@@ -43,12 +41,12 @@ const User = () => {
     }, [])
 
     const handleSubmit = () => {
-        api.put(`/cliente/${params.id}`, newData).then(response => setNewData(response.data))
+       api.put(`/cliente/${params.id}`, newData).then(response => setNewData(response.data))
     }
 
-    const handleClick = () => {
-        alert('Usuário deletado com sucesso!')
-        api.delete(`/cliente/${params.id}`).then(response => setNewData(response.data))
+    const handleClick = () => {        
+        api.delete(`/cliente/${params.id}`);
+        alert('Usuário deletado com sucesso!');        
     }
 
     return (
@@ -104,7 +102,7 @@ const User = () => {
 
                     <ButtonContainer>
                         <button type='submit'>Update</button>
-                        <button onClick={(handleClick)}>Delete</button>
+                        <Link to="/" ><button onClick={(handleClick)}>Delete</button></Link>
                     </ButtonContainer>
                 </Form>
             </FormContainer>
