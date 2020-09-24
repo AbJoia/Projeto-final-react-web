@@ -3,7 +3,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import Global from './styles/global';
 import Home from './pages/Home';
-import Signup from './pages/signup';
+import Signup from './pages/SignUp';
 import User from './pages/User';
 
 function App() {

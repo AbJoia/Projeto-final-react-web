@@ -17,7 +17,7 @@ import {
     Form,
 } from './styles';
 
-const cadastro = () => {
+const SignUp = () => {
 
     const [form, setForm] = useState(1);
     const [button, setButton] = useState('Avançar');
@@ -178,5 +178,5 @@ const cadastro = () => {
     );
 }
 
-export default cadastro;
+export default SignUp;
 
