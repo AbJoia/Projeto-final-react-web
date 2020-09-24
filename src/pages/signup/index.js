@@ -1,12 +1,8 @@
 import React, {useState} from 'react';
 import Img from '../../assets/imgCadastro.svg';
 import Header from '../../components/Header';
-//import {ErrorMessage} from 'formik';
-//import $ from 'jquery';
-//import {format} from 'date-fns-tz';
-//import { post } from 'jquery';
-//import api from '../../services/api';
-//import * as yup from 'yup';
+import api from '../../services/api';
+
 
 
 import {
@@ -17,7 +13,7 @@ import {
     Form,
 } from './styles';
 
-const cadastro = () => {
+const SignUp = () => {
 
     const [form, setForm] = useState(1);
     const [button, setButton] = useState('Avançar');
@@ -49,21 +45,57 @@ const cadastro = () => {
         }
     }  
 
-    // const postData = () =>{             
-    //     api.post('/cliente', userData)
-    //     .then(response =>{
-    //         alert('Cadastro realizado com sucesso!');
-    //     }).catch(error => {
-    //         alert('Cadastro não realizado!' + error);
-    //     });
-    // }   
+    const postData = () =>{             
+        api.post('/cliente', userData)
+        .then(response =>{
+            alert('Cadastro realizado com sucesso!');
+            window.location.href="/";
+        }).catch(error => {
+            alert('Cadastro não realizado!' + error);
+        });
+    }   
    
     const envio = (e) =>{
-        e.preventDefault();        
-        alert('Cadastro realizado');        
-        console.log(userData);
+        e.preventDefault();       
+
+        if(validationForm() === true){                  
+            (postData());                                   
+            
+        }else{ 
+            (validationForm());           
+            alert('Não foi possivel realizar cadastro');
+        }        
     }     
     
+    const validationForm = () => {       
+
+        if(userData.nome.length < 5 || userData.nome.length > 60){
+            alert('O campo nome deve conter entre 5 e 60 dígitos.');
+            return false;
+        }
+
+        if(userData.usuario.length < 6 || userData.usuario.length > 15){
+            alert('O campo usuário deve conter entre 6 e 15 dígitos.');
+            return false;
+        }
+
+        if(userData.cpf.length !== 11){
+            alert('O campo CPF deve conter 11 dígitos.');
+            return false;
+        }
+
+        if(userData.endereco.rua.length < 4 || userData.endereco.rua.length > 60){
+            alert('O campo rua deve conter entre 4 e 60 dígitos.');
+            return false;
+        }
+
+        if(userData.endereco.cidade.length < 3 || userData.endereco.cidade.length > 40){
+            alert('O campo cidade deve conter entre 3 e 40 dígitos.');
+            return false;
+        } 
+
+        return true;
+    }    
     
     return (
         <Container>
@@ -77,19 +109,19 @@ const cadastro = () => {
                     <Form onSubmit={envio}>
                         {form === 1 ?
                             <>
-                                <input type="text" placeholder="Nome"
+                                <input type="text" value={userData.nome} maxLength='60' placeholder="Nome"
                                     required
                                     onChange={event =>
                                         setUserData({ ...userData, nome: event.target.value })}>
                                 </input>
 
-                                <input type="text" placeholder="Usuário"
+                                <input type="text" value={userData.usuario} minLength='6' maxLength='15' placeholder="Usuário"
                                     required
                                     onChange={event =>
                                         setUserData({ ...userData, usuario: event.target.value })}>
                                 </input>
 
-                                <input type="text" placeholder="CPF"
+                                <input type="text" value={userData.cpf} maxLength='11' placeholder="CPF"
                                     required
                                     onChange={event =>
                                         setUserData({ ...userData, cpf: event.target.value })}>
@@ -101,7 +133,7 @@ const cadastro = () => {
                                         setUserData({ ...userData, dataNascimento: event.target.value + 'T00:00:00Z' })}>
                                 </input>
 
-                                <input type="email" placeholder="Email"
+                                <input type="email" value={userData.email} placeholder="Email"
                                     required
                                     onChange={event =>
                                         setUserData({ ...userData, email: event.target.value })}>
@@ -110,7 +142,7 @@ const cadastro = () => {
                                 <button onClick={handleFormChange}>{button}</button>
                             </> :
                             <>
-                                <input type="text" value={userData.endereco.rua} placeholder="Rua"
+                                <input type="text" value={userData.endereco.rua} maxLength='60' placeholder="Rua"
                                     required
                                     onChange={event =>
                                         setUserData({
@@ -141,7 +173,7 @@ const cadastro = () => {
                                     })}>
                                 </input>
 
-                                <input type="text" value={userData.endereco.cidade} placeholder="Cidade"
+                                <input type="text" value={userData.endereco.cidade} maxLength='40' placeholder="Cidade"
                                     required
                                     onChange={event => setUserData({
                                         ...userData, endereco:
@@ -149,7 +181,7 @@ const cadastro = () => {
                                     })}>
                                 </input>
 
-                                <input type="text" value={userData.endereco.estado} placeholder="Estado"
+                                <input type="text" value={userData.endereco.estado} maxLength='2' placeholder="Estado"
                                     required
                                     onChange={event => setUserData({
                                         ...userData, endereco:
@@ -157,7 +189,7 @@ const cadastro = () => {
                                     })}>
                                 </input>
 
-                                <input type="text" value={userData.endereco.cep} placeholder="CEP"
+                                <input type="text" value={userData.endereco.cep} maxLength='8' placeholder="CEP"
                                     required
                                     onChange={event => setUserData({
                                         ...userData, endereco:
@@ -178,5 +210,5 @@ const cadastro = () => {
     );
 }
 
-export default cadastro;
+export default SignUp;
 
